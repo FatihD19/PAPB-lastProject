@@ -1,0 +1,22 @@
+{
+  "input": "location",
+  "input2": "price",
+  "input3": "heavy",
+  "operasi1": "Add data",
+  "operasi2": "DELETE",
+  "operasi3": "CANCELLED",
+  "operasi4": "Edit data",
+  "input4": "name of goods",
+  "alert": "You are sure you will delete items",
+  "rjin1": "Province of origin",
+  "rjin2": "Hometown",
+  "rjin3": "Destination Province",
+  "rjin4": "Destination city",
+  "rjin5": "Choose a courier",
+  "input5": "status",
+  "input6": "picture",
+  "fitur": "Feature",
+  "desc": "List of items to be sent",
+  "open": "Open",
+  "bahasa": "language"
+}

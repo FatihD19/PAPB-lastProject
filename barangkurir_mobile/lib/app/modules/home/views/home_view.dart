@@ -1,12 +1,16 @@
 // ignore_for_file: unnecessary_new, prefer_const_constructors
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:ongkir_oldver/app/data/models/ongkir_model.dart';
+import 'package:ongkir_oldver/app/locale/locale_keys.g.dart';
+import 'package:ongkir_oldver/app/modules/home/views/languages.dart';
 import 'package:ongkir_oldver/app/modules/home/views/main.dart';
 import 'package:ongkir_oldver/app/modules/home/views/ongkir_view.dart';
 import 'package:page_transition/page_transition.dart';
@@ -19,23 +23,33 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         title: 'BarangKurir',
         home: AnimatedSplashScreen(
             duration: 3000,
             splash: Container(
-                height: 100,
-                child: Column(
-                  children: [
-                    Icon(Icons.delivery_dining_sharp, size: 66),
-                    Text("Barang Kurir"),
-                  ],
+                height: 166,
+                child: Center(
+                  child: Row(
+                    children: [
+                      SizedBox(width: 50),
+                      Text(
+                        "Barang Kurir",
+                        style:
+                            new TextStyle(fontSize: 25, fontFamily: 'Monofett'),
+                      ),
+                      Icon(Icons.delivery_dining_sharp, size: 150),
+                    ],
+                  ),
                 )),
             nextScreen: MyHomePage(
               title: '',
             ),
-            splashTransition: SplashTransition.fadeTransition,
-            pageTransitionType: PageTransitionType.topToBottom,
-            backgroundColor: Colors.blue));
+            splashTransition: SplashTransition.scaleTransition,
+            pageTransitionType: PageTransitionType.leftToRight,
+            backgroundColor: Colors.blue.shade600));
   }
 }
 
@@ -91,38 +105,31 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ListTile(
                   leading: Icon(Icons.arrow_drop_down_circle),
-                  title: const Text('Me Store'),
+                  title: const Text('Barang Kurir'),
                   subtitle: Text(
-                    'Api Server',
+                    LocaleKeys.desc,
                     style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Text(
-                    'Menampilkan data daftar barang yang berasal dari Api yang berada di server Virtual Machine.',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
+                  ).tr(),
                 ),
                 ButtonBar(
                   alignment: MainAxisAlignment.start,
                   children: [
-                    TextButton(
+                    ElevatedButton(
                       onPressed: () {
                         Get.to(() => Home(),
                             transition: Transition.circularReveal,
                             duration: Duration(seconds: 2));
                       },
-                      child: const Text('OPEN'),
+                      child: const Text(LocaleKeys.open).tr(),
                     ),
-                    TextButton(
-                      onPressed: () async {
-                        String? token =
-                            await FirebaseMessaging.instance.getToken();
-                        print(token);
+                    ElevatedButton(
+                      onPressed: () {
+                        Get.to(() => Languages(),
+                            transition: Transition.circularReveal,
+                            duration: Duration(seconds: 2));
                       },
-                      child: const Text('TOKEN'),
-                    )
+                      child: const Text(LocaleKeys.bahasa).tr(),
+                    ),
                   ],
                 ),
                 Image.network(
@@ -138,27 +145,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   leading: Icon(Icons.arrow_drop_down_circle),
                   title: const Text('Raja Ongkir'),
                   subtitle: Text(
-                    'Public Api',
+                    LocaleKeys.fitur,
                     style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: Text(
-                    'Raja Ongkir adalah public Api yang menyediakan data-data tarif ongkir antar kota di indonesia.',
-                    style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                  ),
+                  ).tr(),
                 ),
                 ButtonBar(
                   alignment: MainAxisAlignment.start,
                   children: [
-                    TextButton(
+                    ElevatedButton(
                       onPressed: () {
                         Get.to(() => OngkirView(),
                             transition: Transition.circularReveal,
                             duration: Duration(seconds: 2));
                       },
-                      child: const Text('OPEN'),
+                      child: const Text(LocaleKeys.open).tr(),
                     ),
                   ],
                 ),

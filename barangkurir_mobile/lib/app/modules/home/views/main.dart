@@ -3,8 +3,10 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:ongkir_oldver/app/locale/locale_keys.g.dart';
 import './Detail.dart';
 import './adddata.dart';
 import './home_view.dart';
@@ -104,7 +106,13 @@ class ItemList extends StatelessWidget {
                           child: list[i]['status'] == "terkirim"
                               ? Icon(Icons.check_box)
                               : Icon(Icons.warning)),
-                      subtitle: new Text("Lokasi : ${list[i]['item_code']}"),
+                      subtitle: Container(
+                          child: Row(
+                        children: [
+                          Text(LocaleKeys.input).tr(),
+                          new Text(" : ${list[i]['item_code']}"),
+                        ],
+                      )),
                     ),
                     Image.network(
                       '${list[i]['gambar']}',

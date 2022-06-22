@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use, unnecessary_new
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:ongkir_oldver/app/locale/locale_keys.g.dart';
 
 class AddData extends StatefulWidget {
   @override
@@ -33,7 +35,7 @@ class _AddDataState extends State<AddData> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Tambah Data"),
+        title: new Text(LocaleKeys.operasi1).tr(),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -44,38 +46,43 @@ class _AddDataState extends State<AddData> {
                 new TextField(
                   controller: controllerCode,
                   decoration: new InputDecoration(
-                      hintText: "Lokasi", labelText: "Lokasi"),
+                      hintText: (LocaleKeys.input).tr(),
+                      labelText: (LocaleKeys.input).tr()),
                 ),
                 new TextField(
                   controller: controllerName,
                   decoration: new InputDecoration(
-                      hintText: "Nama Barang", labelText: "Nama Barang"),
+                      hintText: (LocaleKeys.input4).tr(),
+                      labelText: (LocaleKeys.input4).tr()),
                 ),
                 new TextField(
                   controller: controllerPrice,
                   decoration: new InputDecoration(
-                      hintText: "Harga", labelText: "Harga"),
+                      hintText: (LocaleKeys.input2).tr(),
+                      labelText: (LocaleKeys.input2).tr()),
                 ),
                 new TextField(
                   controller: controllerStock,
                   decoration: new InputDecoration(
-                      hintText: "Berat (gram)", labelText: "Berat"),
+                      hintText: (LocaleKeys.input3).tr(),
+                      labelText: (LocaleKeys.input3).tr()),
                 ),
                 new TextField(
                   controller: controllerGambar,
                   decoration: new InputDecoration(
-                      hintText: "Gambar (link)", labelText: "link Gambar"),
+                      hintText: (LocaleKeys.input6).tr(), labelText: "link "),
                 ),
                 new TextField(
                   controller: controllerStatus,
                   decoration: new InputDecoration(
-                      hintText: "Keterangan", labelText: "Keterangan"),
+                      hintText: (LocaleKeys.input5).tr(),
+                      labelText: (LocaleKeys.input5).tr()),
                 ),
                 new Padding(
                   padding: const EdgeInsets.all(10.0),
                 ),
                 new RaisedButton(
-                  child: new Text("Tambah Data"),
+                  child: new Text(LocaleKeys.operasi1).tr(),
                   color: Colors.blueAccent,
                   onPressed: () {
                     addData();

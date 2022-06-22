@@ -1,0 +1,22 @@
+{
+  "input": "lokasi",
+  "input2": "harga",
+  "input3": "berat",
+  "operasi1": "Tambah Data",
+  "operasi2": "HAPUS",
+  "operasi3": "BATAL",
+  "operasi4": "Edit data",
+  "input4": "nama barang",
+  "alert": "Anda yakin akan menghapus barang",
+  "rjin1": "Provinsi Asal",
+  "rjin2": "Kota Asal",
+  "rjin3": "Provinsi Tujuan",
+  "rjin4": "Kota Tujuan",
+  "rjin5": "pilih kurir",
+  "input5": "keterangan",
+  "input6": "gambar",
+  "fitur": "fitur",
+  "desc": "Daftar barang yang harus dikirm",
+  "open": "Open",
+  "bahasa": "bahasa"
+}
