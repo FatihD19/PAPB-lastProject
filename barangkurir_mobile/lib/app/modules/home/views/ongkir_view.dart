@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:ongkir_oldver/app/data/models/city_model.dart';
 import 'package:ongkir_oldver/app/data/models/province_model.dart';
+import 'package:ongkir_oldver/app/modules/home/views/home_view.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -14,6 +15,18 @@ class OngkirView extends GetView<HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: Text('HomeView'),
+        leading: GestureDetector(
+          onTap: () => Navigator.of(context).push(
+            new MaterialPageRoute(
+              builder: (BuildContext context) => new MyHomePage(
+                title: '',
+              ),
+            ),
+          ),
+          child: Icon(
+            Icons.arrow_back_ios_rounded, // add custom icons also
+          ),
+        ),
         centerTitle: true,
       ),
       body: ListView(

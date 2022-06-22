@@ -1,58 +1,39 @@
-// ignore_for_file: deprecated_member_use, prefer_const_constructors, unnecessary_new
+// ignore_for_file: prefer_const_constructors, deprecated_member_use, unnecessary_new
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import './main.dart';
 
-class EditData extends StatefulWidget {
-  final List list;
-  final int index;
-
-  EditData({required this.list, required this.index});
-
+class AddData extends StatefulWidget {
   @override
-  _EditDataState createState() => new _EditDataState();
+  _AddDataState createState() => new _AddDataState();
 }
 
-class _EditDataState extends State<EditData> {
-  late TextEditingController controllerCode;
-  late TextEditingController controllerName;
-  late TextEditingController controllerPrice;
-  late TextEditingController controllerStock;
-  late TextEditingController controllerGambar;
+class _AddDataState extends State<AddData> {
+  TextEditingController controllerCode = new TextEditingController();
+  TextEditingController controllerName = new TextEditingController();
+  TextEditingController controllerPrice = new TextEditingController();
+  TextEditingController controllerStock = new TextEditingController();
+  TextEditingController controllerGambar = new TextEditingController();
+  TextEditingController controllerStatus = new TextEditingController();
 
-  void editData() {
-    var url = Uri.parse("http://10.0.2.2/my_store/editdata.php");
+  void addData() {
+    var url = Uri.parse("http://10.0.2.2/my_store/adddata.php");
+
     http.post(url, body: {
-      "id": widget.list[widget.index]['id'],
       "itemcode": controllerCode.text,
       "itemname": controllerName.text,
       "price": controllerPrice.text,
       "stock": controllerStock.text,
-      "gambar": controllerGambar.text
+      "gambar": controllerGambar.text,
+      "status": controllerStatus.text
     });
-  }
-
-  @override
-  void initState() {
-    controllerCode =
-        new TextEditingController(text: widget.list[widget.index]['item_code']);
-    controllerName =
-        new TextEditingController(text: widget.list[widget.index]['item_name']);
-    controllerPrice =
-        new TextEditingController(text: widget.list[widget.index]['price']);
-    controllerStock =
-        new TextEditingController(text: widget.list[widget.index]['stock']);
-    controllerGambar =
-        new TextEditingController(text: widget.list[widget.index]['gambar']);
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("EDIT DATA"),
+        title: new Text("Tambah Data"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
@@ -68,12 +49,12 @@ class _EditDataState extends State<EditData> {
                 new TextField(
                   controller: controllerName,
                   decoration: new InputDecoration(
-                      hintText: "Item Name", labelText: "Item Name"),
+                      hintText: "Nama Barang", labelText: "Nama Barang"),
                 ),
                 new TextField(
                   controller: controllerPrice,
                   decoration: new InputDecoration(
-                      hintText: "Price", labelText: "Price"),
+                      hintText: "Harga", labelText: "Harga"),
                 ),
                 new TextField(
                   controller: controllerStock,
@@ -83,18 +64,22 @@ class _EditDataState extends State<EditData> {
                 new TextField(
                   controller: controllerGambar,
                   decoration: new InputDecoration(
-                      hintText: "Gambar (link)", labelText: "link"),
+                      hintText: "Gambar (link)", labelText: "link Gambar"),
+                ),
+                new TextField(
+                  controller: controllerStatus,
+                  decoration: new InputDecoration(
+                      hintText: "Keterangan", labelText: "Keterangan"),
                 ),
                 new Padding(
                   padding: const EdgeInsets.all(10.0),
                 ),
                 new RaisedButton(
-                  child: new Text("EDIT DATA"),
+                  child: new Text("Tambah Data"),
                   color: Colors.blueAccent,
                   onPressed: () {
-                    editData();
-                    Navigator.of(context).push(new MaterialPageRoute(
-                        builder: (BuildContext context) => new Home()));
+                    addData();
+                    Navigator.pop(context);
                   },
                 )
               ],

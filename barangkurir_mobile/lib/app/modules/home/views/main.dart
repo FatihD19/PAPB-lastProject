@@ -35,7 +35,9 @@ class _HomeState extends State<Home> {
         leading: GestureDetector(
           onTap: () => Navigator.of(context).push(
             new MaterialPageRoute(
-              builder: (BuildContext context) => new MyHomePage(),
+              builder: (BuildContext context) => new MyHomePage(
+                title: '',
+              ),
             ),
           ),
           child: Icon(
@@ -91,19 +93,18 @@ class ItemList extends StatelessWidget {
               ),
             ),
             child: Container(
-              height: 250,
+              height: 265,
               child: new Card(
                 elevation: 5,
                 child: Column(
                   children: [
                     new ListTile(
                       title: new Text(list[i]['item_name']),
-                      leading: new Icon(
-                        Icons.shopping_bag,
-                        size: 30.0,
-                      ),
-                      subtitle: new Text(
-                          "Lokasi : ${list[i]['item_code']}\nPrice : Rp. ${list[i]['price']}"),
+                      leading: Container(
+                          child: list[i]['status'] == "terkirim"
+                              ? Icon(Icons.check_box)
+                              : Icon(Icons.warning)),
+                      subtitle: new Text("Lokasi : ${list[i]['item_code']}"),
                     ),
                     Image.network(
                       '${list[i]['gambar']}',

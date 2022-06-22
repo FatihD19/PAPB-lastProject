@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "111393553165",
+    "project_id": "notification-8548d",
+    "storage_bucket": "notification-8548d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111393553165:android:5646f85e064466ad4e8e44",
+        "android_client_info": {
+          "package_name": "com.example.notification"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111393553165-2hm4218ulppac6cqu45702155vfor2h2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9d_Kg_N01BB84fe9JL2mq--SPmoZgDyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111393553165-2hm4218ulppac6cqu45702155vfor2h2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111393553165:android:5e963982e965c1aa4e8e44",
+        "android_client_info": {
+          "package_name": "com.example.ongkir_oldver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111393553165-2hm4218ulppac6cqu45702155vfor2h2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9d_Kg_N01BB84fe9JL2mq--SPmoZgDyA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111393553165-2hm4218ulppac6cqu45702155vfor2h2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -46,7 +46,17 @@ curl_close($ch);
 print("<center><br>status :  {$result["status"]} "); 
 print("<br>");
 print("message :  {$result["message"]} "); 
-echo "<br>Sukses terkirim ke ubuntu server !";
+echo "<br>Sukses terkirim ke Aplikasi Mobile !";
 echo "<br><a href=Barang.php> OK </a>";
+echo "<br><h2>$item_name</h2>";
+
+include("notifikasi.php");
+// $keyclient = "f9GUSwLmRtGi4_eCiGoMho:APA91bEA6FvRBvPv4dRDhvQnrUhiKZtdV6JocsKQOO9IW8I4iXfkiH9Qnz9ElqwMZbJCYywNolP18AMTX76U2foMAvJlp4-DJXFy6OHASwr1eH1pRpBF_7jssYdVuWl4Q6Sw6SH02WOH";
+$keyclient = "cePTqvyJT2KJRFSF7aXXf8:APA91bEG7hKIYlXJMeLjstIXRu66LlL-BhX_-jd8LqTgiFzvN1tgFCG7mimhkXbTNBQtNI63cl1doSyyDOsH6EX8bx7TNNoxDcMEuhcxDS-Nv1iN78yWtDmRbXQv6ky6UQL22ys6FL1i";
+$title     = "Barang $item_name ,tertambah";
+$body       = "$item_code";
+$icon       = "";
+$url        = "";
+sendPush($keyclient, $title, $body, $icon, $url);
 }
 ?>

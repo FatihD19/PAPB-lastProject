@@ -22,11 +22,11 @@ class _DetailState extends State<Detail> {
   void confirm() {
     AlertDialog alertDialog = new AlertDialog(
       content: new Text(
-          "Are You sure want to delete '${widget.list[widget.index]['item_name']}'"),
+          "Anda yakin akan menghapus barang '${widget.list[widget.index]['item_name']}'"),
       actions: <Widget>[
         new RaisedButton(
           child: new Text(
-            "OK DELETE!",
+            "OK HAPUS!",
             style: new TextStyle(color: Colors.black),
           ),
           color: Colors.red,
@@ -38,7 +38,7 @@ class _DetailState extends State<Detail> {
           },
         ),
         new RaisedButton(
-          child: new Text("CANCEL", style: new TextStyle(color: Colors.black)),
+          child: new Text("BATAL", style: new TextStyle(color: Colors.black)),
           color: Colors.green,
           onPressed: () => Navigator.pop(context),
         ),
@@ -88,11 +88,15 @@ class _DetailState extends State<Detail> {
                   style: new TextStyle(fontSize: 18.0),
                 ),
                 new Text(
-                  "Price :Rp. ${widget.list[widget.index]['price']}",
+                  "Harga :Rp. ${widget.list[widget.index]['price']}",
                   style: new TextStyle(fontSize: 18.0),
                 ),
                 new Text(
                   "Berat : ${widget.list[widget.index]['stock']} gram",
+                  style: new TextStyle(fontSize: 18.0),
+                ),
+                new Text(
+                  "Keterangan:\n ${widget.list[widget.index]['status']}",
                   style: new TextStyle(fontSize: 18.0),
                 ),
                 new Padding(
@@ -113,7 +117,7 @@ class _DetailState extends State<Detail> {
                       )),
                     ),
                     new RaisedButton(
-                      child: new Text("DELETE"),
+                      child: new Text("HAPUS"),
                       color: Colors.red.shade600,
                       onPressed: () => confirm(),
                     ),
